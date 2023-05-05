@@ -127,6 +127,12 @@
     如果优化器不是lion ,可以尝试将config/config.json precision 改为32 ，然后修改 train.py Trainner 添加参数 precision=16 或者precision='bf16'
     python train.py
 ```
+直接跑`python train.py`，AutoDL的T4显卡，在`train_batch_size=2, eval_batch_size=1, test_batch_size=1` 配置下（修改data_utils.py源码），显存也烧到了 14599MiB / 15360MiB
+![image](https://user-images.githubusercontent.com/40910637/236398765-85350fc2-9b31-4ed8-8fca-b8be19c45481.png)
+![image](https://user-images.githubusercontent.com/40910637/236399073-4702e006-4e9a-4315-8d18-6f7fc13d9b24.png)
+
+
+
 
 ```text
 多机多卡训练 例子 3个机器 每个机器 4个卡
