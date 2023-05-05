@@ -154,7 +154,7 @@ while True:
 
 
 效果如下：
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/40910637/236428225-32be82e7-5279-42e8-b7b1-20224c925d16.png)
 
 
 ## 8.训练
