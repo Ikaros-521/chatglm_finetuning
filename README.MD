@@ -100,7 +100,7 @@ ps:实际安装中还少了个`ligntning`，补装`pip install ligntning`
     num_process_worker 为多进程制作数据 ， 如果数据量较大 ， 适当调大至cpu数量
     dataHelper.make_dataset_with_args(data_args.train_file,mixed_data=False, shuffle=True,mode='train',num_process_worker=0)
 
-需要注意`data_utils.py`中，默认加载模型的路径 `model_name_or_path`和`tokenizer_name`，将它们改成你模型的路径。
+需要注意`data_utils.py`中，默认加载模型的路径 `model_name_or_path`和`tokenizer_name`，将它们改成你模型的路径。默认加载的配置文件位于第66行`'train_file':  [ './data/finetune_train_examples.json']`。  
 
 ## 7.推理
     # infer.py 推理预训练模型
@@ -126,6 +126,7 @@ ps:实际安装中还少了个`ligntning`，补装`pip install ligntning`
 ![image](https://user-images.githubusercontent.com/40910637/236415127-d5122857-2790-4885-a849-ee10ccce6271.png)
 
 ### infer.py
+已经可以看到官方demo中训练的内容的问答正确输出了，可喜可贺
 ![image](https://user-images.githubusercontent.com/40910637/236417332-c9cffd82-a2a7-418d-8290-08c7614ebd7e.png)
 
 
@@ -138,6 +139,22 @@ ps:实际安装中还少了个`ligntning`，补装`pip install ligntning`
 运行 `python infer_finetuning.py`
 ![image](https://user-images.githubusercontent.com/40910637/236414936-23d65bcc-ccb4-42a4-8273-311eb7bd86d3.png)
 
+### my_infer.py
+稍微修改下源码，实现实时多次对话，拷贝一份`cp infer.py my_infer.py`  
+改下源码最后面几行  
+```
+while True:
+    q = input('say:')
+    response, history = model.chat(tokenizer, q, history=[],max_length=2048,
+        eos_token_id=config.eos_token_id,
+        do_sample=True, top_p=0.7, temperature=0.95,
+        )
+    print(q,' ',response)
+```
+
+
+效果如下：
+![Uploading image.png…]()
 
 
 ## 8.训练
