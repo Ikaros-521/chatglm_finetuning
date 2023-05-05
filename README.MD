@@ -16,7 +16,11 @@
 
 ## 1.安装
   - pip install -i https://pypi.org/simple -U deep_training>=0.1.3 cpm_kernels transformers>=4.26.1 deepspeed
+
 如遇到没有正常安装，可以将`>=`换成`==`进行安装
+  - pip install -i https://pypi.org/simple -U deep_training==0.1.3 cpm_kernels transformers==4.26.1 deepspeed
+
+ps:实际安装中还少了个`ligntning`，补装`pip install ligntning`  
 
 ## 2.更新详情
 - [deep_training](https://github.com/ssbuild/deep_training)
