@@ -128,7 +128,7 @@
     python train.py
 ```
 
-模型选择6b-int4，直接跑`python train.py`，AutoDL的T4显卡，在`train_batch_size=2, eval_batch_size=1, test_batch_size=1` 配置下（修改data_utils.py源码），显存也烧到了 14599MiB / 15360MiB
+模型选择6b-int4，直接跑`python train.py`，AutoDL的T4显卡，在`train_batch_size=2, eval_batch_size=1, test_batch_size=1` 配置下（修改data_utils.py源码），显存也烧到了 14599MiB / 15360MiB，一个epoch耗时2:38。
 ![image](https://user-images.githubusercontent.com/40910637/236398765-85350fc2-9b31-4ed8-8fca-b8be19c45481.png)
 ![image](https://user-images.githubusercontent.com/40910637/236399073-4702e006-4e9a-4315-8d18-6f7fc13d9b24.png)
 
