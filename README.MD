@@ -96,6 +96,7 @@
     num_process_worker 为多进程制作数据 ， 如果数据量较大 ， 适当调大至cpu数量
     dataHelper.make_dataset_with_args(data_args.train_file,mixed_data=False, shuffle=True,mode='train',num_process_worker=0)
 
+需要注意`data_utils.py`中，默认加载模型的路径 `model_name_or_path`和`tokenizer_name`，将它们改成你模型的路径。
 
 ## 7.推理
     # infer.py 推理预训练模型
