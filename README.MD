@@ -120,6 +120,26 @@ ps:实际安装中还少了个`ligntning`，补装`pip install ligntning`
 
 ![inference](1.png)
 
+### 运行前的问题处理
+
+修改源码 `vi /root/miniconda3/lib/python3.8/site-packages/deep_training/nlp/models/chatglm/__init__.py +1166`  
+![image](https://user-images.githubusercontent.com/40910637/236415127-d5122857-2790-4885-a849-ee10ccce6271.png)
+
+### infer.py
+![image](https://user-images.githubusercontent.com/40910637/236417332-c9cffd82-a2a7-418d-8290-08c7614ebd7e.png)
+
+
+### infer_finetuning.py
+运行前，先完成了第8步的训练，会有模型输出到`best_ckpt`  
+
+修改源码`infer_finetuning.py`第40行，模型路径
+![image](https://user-images.githubusercontent.com/40910637/236415263-eb5a01a3-a624-4fad-be1b-a8184bc4a6ed.png)
+
+运行 `python infer_finetuning.py`
+![image](https://user-images.githubusercontent.com/40910637/236414936-23d65bcc-ccb4-42a4-8273-311eb7bd86d3.png)
+
+
+
 ## 8.训练
     支持4种微调方式 
 - 冻结 N 层 修改models.py global_num_layers_freeze   
@@ -136,6 +156,8 @@ ps:实际安装中还少了个`ligntning`，补装`pip install ligntning`
 ![image](https://user-images.githubusercontent.com/40910637/236398765-85350fc2-9b31-4ed8-8fca-b8be19c45481.png)
 ![image](https://user-images.githubusercontent.com/40910637/236399073-4702e006-4e9a-4315-8d18-6f7fc13d9b24.png)
 
+训练结束，会有`best_ckpt`  
+![image](https://user-images.githubusercontent.com/40910637/236415667-40d7058f-73b5-4b9e-9629-a191e0395d7e.png)
 
 
 
