@@ -130,7 +130,7 @@ ps:实际安装中还少了个`ligntning`，补装`pip install ligntning`
 ![image](https://user-images.githubusercontent.com/40910637/236417332-c9cffd82-a2a7-418d-8290-08c7614ebd7e.png)
 
 
-### infer_finetuning.py
+### infer_finetuning.py （配合ptv2用）
 运行前，先完成了第8步的训练，会有模型输出到`best_ckpt`  
 
 修改源码`infer_finetuning.py`第40行，模型路径
