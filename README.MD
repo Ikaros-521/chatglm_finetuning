@@ -156,6 +156,14 @@ while True:
 效果如下：
 ![image](https://user-images.githubusercontent.com/40910637/236428225-32be82e7-5279-42e8-b7b1-20224c925d16.png)
 
+### infer_api.py
+依赖fastapi和uvicorn，使用前请先安装依赖。`pip install fastapi uvicorn`  
+服务器安全组放行我就不说了，是AutoDL的话，我这是加了个frp穿透。  
+源码默认监听端口56780,可自行修改源码最底部的port配置。  
+效果如下：
+![image](https://user-images.githubusercontent.com/40910637/236593830-a3d76e2e-8649-44f6-9863-6be1c4df06bd.png)
+![image](https://user-images.githubusercontent.com/40910637/236593858-32f1aabf-1a57-42dd-a845-d4f7014bb338.png)
+
 
 ## 8.训练
     支持4种微调方式 
