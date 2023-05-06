@@ -168,8 +168,8 @@ while True:
 ## 8.训练
     支持4种微调方式 
 - 冻结 N 层 修改models.py global_num_layers_freeze   
-- ptuning v2    
-- lora
+- ptuning v2 （6b-int4可以跑）   
+- lora （6b-int4不能跑lora，要换6b）
 - 正常微调
 ```text
     训练精度 可以修改 config.json precision 16 32
@@ -200,9 +200,19 @@ MASTER_ADDR=10.0.0.1 MASTER_PORT=6667 WORLD_SIZE=12 NODE_RANK=2 python train.py
 
 ### 是否开启ptuning v2
     对于 deepspeed模式 , ptuning v2  只支持 stage 0
-    修改对应配置文件
+    修改对应配置文件`config/config_ptv2.json`  
+    ```
     "pre_seq_len": 32,
     "prefix_projection": false
+    ```
+    
+    如果是6b-int跑ptv2的话，还需要修改`config/config_ptv2.json`中`"quantization_bit": 4`，  
+    另外修改`train.py`约131行，注释掉报错，换pass跳过。  
+    ```
+    if config.quantization_bit:
+        pass
+        #raise Exception('量化模型不支持微调训练')
+    ```
 ### int高效训练方式
    1. p-tuning-v2   使用chatglm-6b-int4 权重 ，配置文件quantization_bit=4
    2. lora int8     配置文件quantization_bit=0，使用官方标准float 16权重文件，修改modes.py load_in_8bit = True 
