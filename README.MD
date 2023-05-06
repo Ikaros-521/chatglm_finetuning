@@ -64,7 +64,7 @@ ps:实际安装中还少了个`ligntning`，补装`pip install ligntning`
  {
      "id": 0, "paragraph": [
          {
-             "q": "从南京到上海的路线",
+              "q": "从南京到上海的路线",
              "a": [
                  "你好，南京到上海的路线如下：",
                  "1. 南京到上海，可以乘坐南京地铁1号线，在南京站乘坐轨道交通1号线。",
@@ -216,9 +216,12 @@ MASTER_ADDR=10.0.0.1 MASTER_PORT=6667 WORLD_SIZE=12 NODE_RANK=2 python train.py
     启动则将data_utils.py  修改 enable_deepspeed 
     lora 模式暂时不支持deepspeed
 
-
 ## 10. Reference
     https://github.com/THUDM/ChatGLM-6B
+
+## FAQ
+### 1. 报错 OSError: [Errno 28] No space left on device
+磁盘容量不足，建议释放不必要的资源，训练输出直接模型和最终模型，int4最少也占了3.6G*2，所以预留10GB空间不为过吧0.0
 
 ## Star History
 
